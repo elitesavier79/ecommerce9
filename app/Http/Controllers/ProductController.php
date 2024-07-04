@@ -11,10 +11,19 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
+    
+    public function index_product()
+    {
+        $products = Product::all();
+        
+        return view('index_product', compact('products'));
+    }
+    
     public function create_product() 
     {
         return view('create_product');
     }
+
 
     public function store_product(Request $request) 
     {
@@ -42,4 +51,6 @@ class ProductController extends Controller
 
         return Redirect::route('create_product');
     }
+
+
 }
