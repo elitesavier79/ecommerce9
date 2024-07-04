@@ -13,7 +13,7 @@ class Order extends Model
         'user_id',
         'is_paid',
         'payment_receipt'
-    ]
+    ];
 
     public function user()
     {
