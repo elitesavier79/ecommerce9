@@ -52,5 +52,16 @@ class ProductController extends Controller
         return Redirect::route('create_product');
     }
 
+    public function show_product(Product $product) 
+    {
+        return view('show_product', compact('product'));
+    }
+
+    
+    //public function edit_product(Product $product)
+    //{
+       // retrun view('edit_product', compact('products'));
+    //}
+
 
 }
