@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit {{$p->name}}</title>
+    <title>Edit {{$product->name}}</title>
 </head>
 <body>
-        <input type="text" name="name" value={{$p->name}}>
+    <form action="{{route('update_product', $product)}}" method="post" enctype="multipart/form-data">
+        @method('patch')
+        @csrf
+        <label for="">Product Name</label>
+        <input type="text" name="name" value="{{$product->name}}">
         <br>
-        <input type="text" name="description" value={{$p->description}}>
+        <label for="">Product Description</label>
+        <input type="text" name="description" value="{{$product->description}}">
         <br>
-        <input type="number" name="price" value={{$p->price}}>
+        <label for="">Product Price</label>
+        <input type="number" name="price" value={{$product->price}}>
         <br>
-        <input type="number" name="stock" value={{$p->stock}}>
+        <label for="">Product Stock</label>
+        <input type="number" name="stock" value={{$product->stock}}>
         <br>
+        <label for="">Product Image</label>
         <input type="file" name="image">
         <br>
-        <button type="submit" >Submit Data</button>
+        <button type="submit" >Update Data</button>
+    </form>
 </body>
 </html>
