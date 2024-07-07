@@ -22,6 +22,13 @@
         <input type="number" name="amount" value="1">
         <button type="submit">Add to Cart</button>
      </form>
+     
+     @if($errors->any())
+     @foreach ($errors->all() as $error)
+         <P>{{$error}}</P>
+     @endforeach
+     @endif
+
 
 </body>
 </html>
