@@ -24,6 +24,11 @@
             <input type="number" name="amount" value="{{$c->amount}}">
             <button type="submit">Update Quantity</button>
         </form>
+        <form action="{{route('delete_cart', $c)}}" method="post">
+            @method('delete')
+            @csrf
+            <button type="submit">Delete Cart</button>
+        </form>
         @endforeach
 </body>
 </html>

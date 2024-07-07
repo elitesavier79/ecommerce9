@@ -19,7 +19,7 @@ class CartController extends Controller
     public function add_to_cart(Product $product, Request $request)
     {
         $request->validate([
-            'amount' => 'required|gte:1|lte:' . $cart->product->stock
+            'amount' => 'required|gte:1'
         ]);
 
         $user_id = Auth::id();
@@ -54,5 +54,11 @@ class CartController extends Controller
         ]);
 
         return redirect::route('show_cart');
+    }
+
+    public function delete_cart(Cart $cart)
+    {
+        $cart->delete();
+        return Redirect::back();
     }
 }
