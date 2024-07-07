@@ -7,10 +7,23 @@
     <title>Cart</title>
 </head>
 <body>
+    @if($errors->any())
+    @foreach ($errors->all() as $error)
+        <P>{{$error}}</P>
+    @endforeach
+    @endif
+
+
         @foreach ( $carts as $c)
         <img src="{{url('storage/' . $c->product->image)}}" alt="" height="100px">
         <p>Name : {{$c->product->name}}</p>
-        <p>Quantity : {{$c->amount}}</p>
+        <br>
+        <form action="{{route('update_cart', $c)}}" method="post">
+            @method('patch')
+            @csrf
+            <input type="number" name="amount" value="{{$c->amount}}">
+            <button type="submit">Update Quantity</button>
+        </form>
         @endforeach
 </body>
 </html>
