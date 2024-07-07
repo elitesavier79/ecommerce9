@@ -13,6 +13,12 @@
      <form action="{{route('show_product', $p)}}" method="get">
          <button type="submit"> Show Detail Product</button>
      </form>
+     
+     <form action="{{route('delete_product', $p)}}" method="post">
+        @method('delete')
+        @csrf
+        <button type="submit">Delete Product</button>
+     </form>
     @endforeach
 </body>
 </html>
